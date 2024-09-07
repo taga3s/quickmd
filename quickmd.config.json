@@ -1,0 +1,30 @@
+{
+  "ext": "md",
+  "outputPath": "./assets",
+  "frontmatter": [
+    {
+      "name": "title",
+      "type": "text",
+      "placeholder": "title",
+      "required": true
+    },
+    {
+      "name": "author",
+      "type": "text",
+      "placeholder": "author",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "text",
+      "placeholder": "description",
+      "required": true
+    },
+    {
+      "name": "published_at",
+      "type": "text",
+      "placeholder": "2024/01/01",
+      "required": true
+    }
+  ]
+}
