@@ -27,15 +27,28 @@ fn main() -> Result<(), Error> {
         .begin()?;
 
     let filename = p.prompt(Input::new("Please enter `filename`").with_placeholder("filename"))?;
-    let mut frontmatter_values = Vec::<FrontmatterValue>::with_capacity(frontmatter_fields.len());
 
+    let mut frontmatter_values = Vec::<FrontmatterValue>::with_capacity(frontmatter_fields.len());
     if frontmatter_fields.len() > 0 {
         p.step("Please fill in the frontmatter fields.")?;
 
         // Iterate over the frontmatter fields and prompt the user for input
         for field in &frontmatter_fields {
-            let extracted_value = extract_frontmatter_value_with_prompt(&mut p, field).unwrap();
-            frontmatter_values.push(extracted_value);
+            if field.field_type == "object" {
+                field.properties.iter().for_each(|prop_field| {
+                    let extracted_value = extract_frontmatter_value_with_prompt(
+                        &mut p,
+                        prop_field,
+                        Some(&field.name),
+                    )
+                    .unwrap();
+                    frontmatter_values.push(extracted_value);
+                })
+            } else {
+                let extracted_value =
+                    extract_frontmatter_value_with_prompt(&mut p, field, None).unwrap();
+                frontmatter_values.push(extracted_value);
+            }
         }
     }
 

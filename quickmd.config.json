@@ -17,18 +17,38 @@
       "required": true
     },
     {
+      "name": "og",
+      "type": "object",
+      "properties": [
+        {
+          "name": "image",
+          "type": "text",
+          "question": "Please enter `og:image`",
+          "placeholder": "/public/images/og-image.png",
+          "required": true
+        },
+        {
+          "name": "og_image_optout",
+          "type": "boolean",
+          "question": "Do you want to opt-out `og:image`?",
+          "placeholder": "og:description",
+          "required": true
+        }
+      ]
+    },
+    {
       "name": "languages",
       "type": "multiselect",
       "question": "Please select multiple `languages`",
-      "placeholder": "languages",
-      "required": true,
       "options": [
         "javascript",
         "typescript",
         "react",
         "nextjs",
         "nodejs"
-      ]
+      ],
+      "placeholder": "languages",
+      "required": true
     },
     {
       "name": "published_at",
