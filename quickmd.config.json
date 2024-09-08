@@ -17,45 +17,36 @@
       "required": true
     },
     {
-      "name": "og",
+      "name": "references",
       "type": "object",
       "properties": [
         {
-          "name": "image",
+          "name": "url1",
           "type": "text",
-          "question": "Please enter `og:image`",
-          "placeholder": "/public/images/og-image.png",
+          "question": "Please enter `url1`",
+          "placeholder": "https://example.com",
           "required": true
         },
         {
-          "name": "og_image_optout",
-          "type": "boolean",
-          "question": "Do you want to opt-out `og:image`?",
-          "placeholder": "og:description",
-          "required": true
+          "name": "url2",
+          "type": "text",
+          "question": "Please enter `url2`",
+          "placeholder": "https://example.com",
+          "required": false
         }
       ]
     },
     {
-      "name": "languages",
+      "name": "programming_languages",
       "type": "multiselect",
-      "question": "Please select multiple `languages`",
+      "question": "Please select multiple `programming_languages`",
       "options": [
         "javascript",
         "typescript",
-        "react",
-        "nextjs",
-        "nodejs"
-      ],
-      "placeholder": "languages",
-      "required": true
-    },
-    {
-      "name": "published_at",
-      "type": "text",
-      "question": "Please enter `published_at`",
-      "placeholder": "2024/01/01",
-      "required": true
+        "nodejs",
+        "python",
+        "rust"
+      ]
     }
   ]
 }
