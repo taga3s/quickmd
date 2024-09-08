@@ -30,9 +30,11 @@ pub struct FrontmatterField {
     #[serde(default = "default_required")]
     pub required: bool,
 
+    // If type equals to `select` or `multiselect`, then `options` is available.
     #[serde(default)]
     pub options: Vec<String>,
 
+    // If type equals to `object`, then `properties` is available.
     #[serde(default)]
     pub properties: Vec<FrontmatterField>,
 }
