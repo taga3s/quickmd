@@ -1,6 +1,6 @@
-# quickmd
+# speedymd
 
-A CLI tool that can generate Markdown as you like, allowing us to start writing quickly. 🚀
+A CLI tool that can generate Markdown as you like, allowing us to start writing speedily. 🚀
 
 ## Install
 

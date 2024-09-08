@@ -6,8 +6,8 @@ use promptuity::prompts::Input;
 use promptuity::themes::FancyTheme;
 use promptuity::{Error, Promptuity, Term};
 
-use quickmd::config::read_from_json;
-use quickmd::frontmatter::{
+use speedymd::config::read_from_json;
+use speedymd::frontmatter::{
     extract_frontmatter_value_with_prompt, generate_frontmatter_format_yaml, FrontmatterValue,
 };
 

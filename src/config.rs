@@ -2,6 +2,8 @@ use std::{error::Error, fs::File, io::BufReader};
 
 use serde::{Deserialize, Serialize};
 
+static CONFIG_FILE_NAME: &str = "speedymd.config.json";
+
 fn default_ext() -> String {
     String::from("md")
 }
@@ -52,7 +54,7 @@ pub struct Config {
 }
 
 pub fn read_from_json() -> Result<Config, Box<dyn Error>> {
-    let file = File::open("quickmd.config.json")?;
+    let file = File::open(CONFIG_FILE_NAME)?;
     let reader = BufReader::new(file);
     let parsed = serde_json::from_reader(reader)?;
     Ok(parsed)

@@ -1,12 +1,12 @@
 [package]
-name = "quickmd"
+name = "speedymd"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "A CLI tool that generates Markdown as you like, allowing us to start writing quickly."
 readme = "README.md"
-homepage = "https://github.com/taga3s/quickmd"
-repository = "https://github.com/taga3s/quickmd"
+homepage = "https://github.com/taga3s/speedymd"
+repository = "https://github.com/taga3s/speedymd"
 keywords = ["rust", "cli", "markdown"]
 categories = ["command-line-utilities"]
 

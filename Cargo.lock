@@ -136,15 +136,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "quickmd"
-version = "0.1.0"
-dependencies = [
- "promptuity",
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "quote"
 version = "1.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -241,6 +232,15 @@ name = "smallvec"
 version = "1.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3c5e1a9a646d36c3599cd173a41282daf47c44583ad367b8e6837255952e5c67"
+
+[[package]]
+name = "speedymd"
+version = "0.1.0"
+dependencies = [
+ "promptuity",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "strip-ansi-escapes"
