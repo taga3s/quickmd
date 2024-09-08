@@ -1,2 +1,2 @@
-pub mod frontmatter;
 pub mod config;
+pub mod frontmatter;

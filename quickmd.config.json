@@ -5,24 +5,35 @@
     {
       "name": "title",
       "type": "text",
+      "question": "Please enter `title`",
       "placeholder": "title",
       "required": true
     },
     {
       "name": "author",
       "type": "text",
+      "question": "Please enter `author`",
       "placeholder": "author",
       "required": true
     },
     {
-      "name": "description",
-      "type": "text",
-      "placeholder": "description",
-      "required": true
+      "name": "languages",
+      "type": "multiselect",
+      "question": "Please select multiple `languages`",
+      "placeholder": "languages",
+      "required": true,
+      "options": [
+        "javascript",
+        "typescript",
+        "react",
+        "nextjs",
+        "nodejs"
+      ]
     },
     {
       "name": "published_at",
       "type": "text",
+      "question": "Please enter `published_at`",
       "placeholder": "2024/01/01",
       "required": true
     }
