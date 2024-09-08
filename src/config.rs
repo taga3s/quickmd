@@ -54,7 +54,13 @@ pub struct Config {
 }
 
 pub fn read_from_json() -> Result<Config, Box<dyn Error>> {
-    let file = File::open(CONFIG_FILE_NAME)?;
+    let file = match File::open(CONFIG_FILE_NAME) {
+        Ok(file) => file,
+        Err(_) => {
+            eprintln!("Could not find the configuration file. Please make sure it exists in the current directory.");
+            std::process::exit(1);
+        }
+    };
     let reader = BufReader::new(file);
     let parsed = serde_json::from_reader(reader)?;
     Ok(parsed)
