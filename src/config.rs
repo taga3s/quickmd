@@ -20,9 +20,9 @@ pub struct FrontmatterField {
     #[serde(rename = "type")]
     pub field_type: String,
     #[serde(default)]
-    pub placeholder: String,
-    #[serde(default)]
     pub question: String,
+    #[serde(default)]
+    pub placeholder: String,
     #[serde(default = "default_required")]
     pub required: bool,
     #[serde(default)]
@@ -35,8 +35,8 @@ pub struct Config {
     pub ext: String,
     #[serde(default = "default_output_path", rename = "outputPath")]
     pub output_path: String,
-    #[serde(default)]
-    pub frontmatter: Vec<FrontmatterField>,
+    #[serde(default, rename = "frontmatter")]
+    pub frontmatter_fields: Vec<FrontmatterField>,
 }
 
 pub fn read_from_json() -> Result<Config, Box<dyn Error>> {
