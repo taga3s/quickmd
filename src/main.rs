@@ -23,14 +23,13 @@ fn main() -> Result<(), Error> {
     let output_path = config.output_path;
     let frontmatter_fields = config.frontmatter_fields;
 
-    p.with_intro("You can start writing quickly from here.")
-        .begin()?;
+    p.with_intro("Setup your markdown file speedily.").begin()?;
 
-    let filename = p.prompt(Input::new("Please enter `filename`").with_placeholder("filename"))?;
+    let filename = p.prompt(Input::new("Enter the filename").with_placeholder("filename"))?;
 
     let mut frontmatter_values = Vec::<FrontmatterValue>::with_capacity(frontmatter_fields.len());
     if frontmatter_fields.len() > 0 {
-        p.step("Please fill in the frontmatter fields.")?;
+        p.step("Fill in the following frontmatter fields.")?;
 
         // Iterate over the frontmatter fields and prompt the user for input
         for field in &frontmatter_fields {
@@ -58,14 +57,14 @@ fn main() -> Result<(), Error> {
 
     let mut file = match File::create(&path) {
         Ok(file) => file,
-        Err(why) => panic!("couldn't create {}: {}", display, why),
+        Err(why) => panic!("Couldn't create {}: {}.", display, why),
     };
 
     if frontmatter_fields.len() > 0 {
         let frontmatter = generate_frontmatter_format_yaml(&frontmatter_values);
         match file.write_all(frontmatter.as_bytes()) {
             Ok(()) => (),
-            Err(why) => panic!("couldn't write to {}: {}", display, why),
+            Err(why) => panic!("Couldn't write to {}: {}.", display, why),
         }
     }
 
