@@ -1,15 +1,21 @@
 # speedymd
 
-A CLI tool that can generate Markdown as you like, allowing us to start writing speedily. 🚀
+A CLI tool for setting up Markdown speedily. 🚀
 
 ## Install
 
 - cargo
 ```bash
-cargo install speedymd
+$ cargo install speedymd
 ```
 
 ## How to use?
+
+Just run
+
+```bash
+$ speedymd
+```
 
 Now, it supports
 
@@ -18,7 +24,7 @@ Now, it supports
 
 See example configuration file [here](https://github.com/taga3s/speedymd/blob/main/speedymd.config.json).
 
-Please be sure configuration file named `speedymd.config.json` exists in the current directory.
+Also, please be sure that configuration file named `speedymd.config.json` exists in the current directory when you use this.
 
 ## License
 
