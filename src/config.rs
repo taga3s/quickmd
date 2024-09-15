@@ -1,4 +1,4 @@
-use std::{error::Error, fs::File, io::BufReader};
+use std::{error::Error, fs::File, io::BufReader, process};
 
 use serde::{Deserialize, Serialize};
 
@@ -58,7 +58,7 @@ pub fn read_from_json() -> Result<Config, Box<dyn Error>> {
         Ok(file) => file,
         Err(_) => {
             eprintln!("Could not find the configuration file. Please make sure it exists in the current directory.");
-            std::process::exit(1);
+            process::exit(1);
         }
     };
     let reader = BufReader::new(file);

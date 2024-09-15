@@ -4,14 +4,14 @@ use std::path::Path;
 
 use promptuity::prompts::Input;
 use promptuity::themes::FancyTheme;
-use promptuity::{Error, Promptuity, Term};
+use promptuity::{Promptuity, Term};
 
 use speedymd::config::read_from_json;
 use speedymd::frontmatter::{
     extract_frontmatter_value_with_prompt, generate_frontmatter_format_yaml, FrontmatterValue,
 };
 
-fn main() -> Result<(), Error> {
+fn main() -> Result<(), promptuity::Error> {
     let mut term = Term::default();
     let mut theme = FancyTheme::default();
     let mut p = Promptuity::new(&mut term, &mut theme);
@@ -45,7 +45,7 @@ fn main() -> Result<(), Error> {
                 })
             } else {
                 let extracted_value =
-                    extract_frontmatter_value_with_prompt(&mut p, field, None).unwrap();
+                    extract_frontmatter_value_with_prompt(&mut p, field, None)?;
                 frontmatter_values.push(extracted_value);
             }
         }

@@ -17,7 +17,7 @@ pub fn extract_frontmatter_value_with_prompt(
     p: &mut Promptuity<'_, Stderr>,
     field: &FrontmatterField,
     parent: Option<&str>,
-) -> Result<FrontmatterValue, Box<dyn std::error::Error>> {
+) -> Result<FrontmatterValue, promptuity::Error> {
     match field.field_type.as_str() {
         "text" => {
             let value = p.prompt(
