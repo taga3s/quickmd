@@ -67,7 +67,7 @@ fn main() -> Result<(), promptuity::Error> {
         Err(why) => panic!("Couldn't create {}: {}.", display, why),
     };
 
-    if frontmatter_fields.len() > 0 {
+    if frontmatter_values.len() > 0 {
         let frontmatter = frontmatter::generate_format_yaml(&frontmatter_values);
         match file.write_all(frontmatter.as_bytes()) {
             Ok(()) => (),
