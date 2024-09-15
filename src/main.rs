@@ -34,15 +34,15 @@ fn main() -> Result<(), promptuity::Error> {
         // Iterate over the frontmatter fields and prompt the user for input
         for field in &frontmatter_fields {
             if field.field_type == "object" {
-                field.properties.iter().for_each(|prop_field| {
+                field.properties.iter().try_for_each::<_, Result<(), promptuity::Error>>(|prop_field| {
                     let extracted_value = extract_frontmatter_value_with_prompt(
                         &mut p,
                         prop_field,
                         Some(&field.name),
-                    )
-                    .unwrap();
+                    )?;
                     frontmatter_values.push(extracted_value);
-                })
+                    Ok(())
+                })?;
             } else {
                 let extracted_value =
                     extract_frontmatter_value_with_prompt(&mut p, field, None)?;
