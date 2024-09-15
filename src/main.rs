@@ -4,14 +4,14 @@ use std::path::Path;
 
 use promptuity::prompts::Input;
 use promptuity::themes::FancyTheme;
-use promptuity::{Error, Promptuity, Term};
+use promptuity::{Promptuity, Term};
 
 use speedymd::config::read_from_json;
 use speedymd::frontmatter::{
     extract_frontmatter_value_with_prompt, generate_frontmatter_format_yaml, FrontmatterValue,
 };
 
-fn main() -> Result<(), Error> {
+fn main() -> Result<(), promptuity::Error> {
     let mut term = Term::default();
     let mut theme = FancyTheme::default();
     let mut p = Promptuity::new(&mut term, &mut theme);
@@ -34,18 +34,18 @@ fn main() -> Result<(), Error> {
         // Iterate over the frontmatter fields and prompt the user for input
         for field in &frontmatter_fields {
             if field.field_type == "object" {
-                field.properties.iter().for_each(|prop_field| {
+                field.properties.iter().try_for_each::<_, Result<(), promptuity::Error>>(|prop_field| {
                     let extracted_value = extract_frontmatter_value_with_prompt(
                         &mut p,
                         prop_field,
                         Some(&field.name),
-                    )
-                    .unwrap();
+                    )?;
                     frontmatter_values.push(extracted_value);
-                })
+                    Ok(())
+                })?;
             } else {
                 let extracted_value =
-                    extract_frontmatter_value_with_prompt(&mut p, field, None).unwrap();
+                    extract_frontmatter_value_with_prompt(&mut p, field, None)?;
                 frontmatter_values.push(extracted_value);
             }
         }
