@@ -3,7 +3,7 @@ name = "speedymd"
 version = "0.1.2"
 edition = "2021"
 license = "MIT"
-description = "A CLI tool that generates Markdown as you like, allowing us to start writing quickly."
+description = "A CLI tool for setting up Markdown speedily."
 readme = "README.md"
 homepage = "https://github.com/taga3s/speedymd"
 repository = "https://github.com/taga3s/speedymd"
@@ -13,5 +13,5 @@ categories = ["command-line-utilities"]
 [dependencies]
 clap = { version = "4.5.17", features = ["derive"] }
 promptuity = "0.0.5"
-serde = { version = "1.0.210", features = ["derive"] }
-serde_json = "1.0.128"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
