@@ -13,7 +13,7 @@ pub struct FrontmatterValue {
     pub parent: Option<String>,
 }
 
-pub fn extract_frontmatter_value_with_prompt(
+pub fn extract_value_with_prompt(
     p: &mut Promptuity<'_, Stderr>,
     field: &FrontmatterField,
     parent: Option<&str>,
@@ -73,7 +73,7 @@ pub fn extract_frontmatter_value_with_prompt(
     }
 }
 
-pub fn generate_frontmatter_format_yaml(values: &Vec<FrontmatterValue>) -> String {
+pub fn generate_format_yaml(values: &Vec<FrontmatterValue>) -> String {
     let mut base = String::from("---\n");
     let mut current_parent = None;
 
