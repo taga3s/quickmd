@@ -9,7 +9,15 @@ use promptuity::{Promptuity, Term};
 use speedymd::config::read_from_json;
 use speedymd::frontmatter::{self, FrontmatterValue};
 
+use clap::Parser;
+
+#[derive(Parser)]
+#[command(version, about)]
+struct Args;
+
 fn main() -> Result<(), promptuity::Error> {
+    let _ = Args::parse();
+
     let mut term = Term::default();
     let mut theme = FancyTheme::default();
     let mut p = Promptuity::new(&mut term, &mut theme);
