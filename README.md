@@ -27,9 +27,9 @@ Now, it supports
 1. Generating `.md (.mdx)` file.
 2. Customizing `Frontmatter` as you like.
 
-## Configuration file `speedymd.config.json`
+## Config file `speedymd.config.json`
 
-See example configuration file [here](https://github.com/taga3s/speedymd/blob/main/speedymd.config.json).
+See example config file [here](https://github.com/taga3s/speedymd/blob/main/speedymd.config.json).
 
 | key         | description                               | required or not |
 |-------------|-------------------------------------------|-----------------|
@@ -47,6 +47,7 @@ See example configuration file [here](https://github.com/taga3s/speedymd/blob/ma
 | placeholder |                                                                                  | not             | any title                        |
 | options     | when you specify `select` or `multiselect` to type, you need to specify this key | not             | ["JavaScript", "Python", "Rust"] |
 | properties  | when you specify `object` to type, you need to specify this key                  | not             | please see the example           |
+| required    |                                                                                  | not             | true                             |
 
 ## License
 
